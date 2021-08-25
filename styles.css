@@ -1,0 +1,70 @@
+body {
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+    font-size: 50px;
+    background-color: #04030F;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container .output {
+    width: 298px;
+}
+
+.container .output input {
+    width: 100%;
+    height: 80px;
+    border: none;
+    padding: 0px;
+    text-align: end;
+}
+
+.container .buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 298px;
+}
+
+.container .buttons button {
+    margin: 5px 5px 0px 5px;
+    border: solid 2px rgb(189, 189, 189);
+    font-size: 20px;
+    border-radius: 15px;
+    width: 55px;
+    height: 55px;
+    font-weight: bold;
+}
+
+.container .buttons .number {
+    background-color: #cfcfcf;
+}
+
+.container .buttons .operator {
+    color: white;
+    background-color: #00A6FB;
+    font-size: 30px;
+}
+
+.container .buttons .equals {
+    color: white;
+    background-color:  #EE5622;
+}
+
+.container .buttons .clear {
+    color:  rgb(245, 52, 52);
+    background-color: white;
+}
+
+.container .buttons .symbol {
+    background-color: white;
+}
+
+.container .buttons .erase {
+    color: white;
+    background-color: rgb(206, 20, 20);
+}
