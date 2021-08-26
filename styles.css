@@ -1,70 +1,105 @@
 body {
-    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
-    font-size: 50px;
+    font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
     background-color: #04030F;
+    margin: 0;
 }
 
 .container {
     display: flex;
     flex-direction: column;
+    align-items:  center;
+}
+
+.calc {
+    background-color: #131313;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    border: solid 6px white;
+    border-radius: 15px;
+    padding: 30px;
+}
+
+.calc .console {
+    font-weight: lighter;
+    background-color: rgb(245, 245, 245);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%;
+    height: 90px;
+    border-radius: 15px;
+    padding: 10px 15px 10px 15px;
+}
+
+.calc .console .top {
+    font-size: 14px;
+    font-weight: 700;
+    height: 40%;
+}
+
+.calc .console .bottom {
+    font-size: 32px;
+    font-weight: 300;
+    height: 60%;
+}
+
+.calc .buttons {
+    margin-top: 5%;
+}
+
+.calc .buttons .row {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
     justify-content: center;
 }
 
-.container .output {
-    width: 298px;
-}
-
-.container .output input {
-    width: 100%;
-    height: 80px;
-    border: none;
-    padding: 0px;
-    text-align: end;
-}
-
-.container .buttons {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 298px;
-}
-
-.container .buttons button {
-    margin: 5px 5px 0px 5px;
+.calc .buttons button {
+    font-size: 30px;
+    width: 50px;
+    height: 50px;
+    margin-left: 5px;
+    margin-right: 5px;
     border: solid 2px rgb(189, 189, 189);
-    font-size: 20px;
     border-radius: 15px;
-    width: 55px;
-    height: 55px;
-    font-weight: bold;
 }
 
-.container .buttons .number {
+.calc .buttons .number {
     background-color: #cfcfcf;
 }
 
-.container .buttons .operator {
+.calc .buttons .operator {
     color: white;
     background-color: #00A6FB;
     font-size: 30px;
 }
 
-.container .buttons .equals {
+.calc .buttons .equals {
     color: white;
     background-color:  #EE5622;
 }
 
-.container .buttons .clear {
+.calc .buttons .clear {
     color:  rgb(245, 52, 52);
     background-color: white;
 }
 
-.container .buttons .symbol {
+.calc .buttons .symbol {
     background-color: white;
 }
 
-.container .buttons .erase {
+.calc .buttons .erase {
     color: white;
     background-color: rgb(206, 20, 20);
+}
+
+header {
+    color: white;
+    background-color: rgb(12, 79, 117);
+    margin-bottom: 0;
+    padding: 15px;
+    text-align: center;
 }
