@@ -28,7 +28,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    width: 100%;
+    width: 95%;
     height: 90px;
     border-radius: 15px;
     padding: 10px 15px 10px 15px;
@@ -79,7 +79,8 @@ body {
 
 .calc .buttons .equals {
     color: white;
-    background-color:  #EE5622;
+    /* background-color:  #EE5622; */
+    background-color:  #268f4e;
 }
 
 .calc .buttons .clear {
@@ -93,7 +94,8 @@ body {
 
 .calc .buttons .erase {
     color: white;
-    background-color: rgb(206, 20, 20);
+    /* background-color: rgb(206, 20, 20); */
+    background-color: #EE5622;
 }
 
 header {

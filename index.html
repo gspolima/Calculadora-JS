@@ -18,10 +18,10 @@
         <div class="calc">
             <div class="console">
                 <div class="section top">
-                    200 / 10
+                    ((200 / 10) * 3) + 9^4
                 </div>
                 <div class="section bottom">
-                    20
+                    6.621
                 </div>
             </div>
             <div class="buttons">
@@ -35,11 +35,11 @@
                     <button class="operator">%</button>
                     <button class="operator">&#8730</button>
                     <button class="operator">^</button>
-                    <button class="operator">/</button>
+                    <button class="operator" onclick="onClick('/')">/</button>
                 </div>
                 <div class="row">
-                    <button class="number">7</button>
-                    <button class="number">8</button>
+                    <button class="number" onclick="onClick(7)">7</button>
+                    <button class="number" onclick="onClick(8)">8</button>
                     <button class="number">9</button>
                     <button class="operator">*</button>
                 </div>
@@ -58,12 +58,12 @@
                 <div class="row">
                     <button class="symbol">+/-</button>
                     <button class="number">0</button>
-                    <button class="symbol">.</button>
+                    <button class="symbol">,</button>
                     <button class="equals">=</button>
                 </div>
             </div>
         </div>
     </div>
-    
+    <script src="index.js" type="text/javascript"></script>
 </body>
 </html>
