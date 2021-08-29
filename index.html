@@ -15,19 +15,18 @@
         &copy; Gustavo Sampaio & Juan Miguel
     </header>
     <div class="container">
-                <div class="calc">
+        <div class="calc">
             <div class="console">
-                <input type="text" name="visor" id="visor" />
-                <!--<div class="section top">
+                <div class="section top">
                     ((200 / 10) * 3) + 9^4
                 </div>
                 <div class="section bottom">
-                   6.621
-                </div> -->
+                    6.621
+                </div>
             </div>
             <div class="buttons">
                 <div class="row">
-                    <input type="button" name="limpar" class="clear" value="AC" onclick="calcParse">C</button>
+                    <button class="clear">C</button>
                     <button class="symbol">(</button>
                     <button class="symbol">)</button>
                     <button class="erase">&#10229;</button>
@@ -36,35 +35,32 @@
                     <button class="operator">%</button>
                     <button class="operator">&#8730</button>
                     <button class="operator">^</button>
-                    <input type="button" name="dividir" class="operator" value="/" onclick="calcParse('dividir')" />
+                    <button class="operator" onclick="onClick('/')">/</button>
                 </div>
                 <div class="row">
-                    <input name="num7"  type="button" class="number" value="7" onclick="calcNum(7)" />
-                    <input name="num8"  type="button" class="number" value="8" onclick="calcNum(8)" />
-                    <input name="num9"  type="button" class="number" value="9" onclick="calcNum(9)" />
-                    <input type="button" name="multiplicar" class="operator" value="*" onclick="calcParse('multiplicar')" />
+                    <button class="number" onclick="onClick(7)">7</button>
+                    <button class="number" onclick="onClick(8)">8</button>
+                    <button class="number">9</button>
+                    <button class="operator">*</button>
                 </div>
                 <div class="row">
-                    <input name="num4"  type="button" class="number" value="4" onclick="calcNum(4)" />
-                    <input name="num5"  type="button" class="number" value="5" onclick="calcNum(5)" />
-                    <input name="num6"  type="button" class="number" value="6" onclick="calcNum(6)" />
-                    <input type="button" name="subtrair" class="operator" value="-" onclick="calcParse('subtrair')">
+                    <button class="number">4</button>
+                    <button class="number">5</button>
+                    <button class="number">6</button>
+                    <button class="operator">-</button>
                 </div>
                 <div class="row">
-                <tr>
-                   <td><input name="num1"  type="button" class="number" value="1" onclick="calcNum(1)" /></td> 
-                    <input name="num2"  type="button" class="number" value="2" onclick="calcNum(2)" />
-                    <input name="num3"  type="button" class="number" value="3" onclick="calcNum(3)" />
-                    <input type="button" name="somar" class="operator" value="+" onclick="calcParse('somar')">
+                    <button id="v1" class="number">1</button>
+                    <button class="number">2</button>
+                    <button class="number">3</button>
+                    <button class="operator">+</button>
                 </div>
-                </tr>
                 <div class="row">
                     <button class="symbol">+/-</button>
                     <button class="number">0</button>
                     <button class="symbol">,</button>
-                    <input type="button" name="igual" class="num" value="=" onclick="calcParse('resultado')" />
+                    <button class="equals">=</button>
                 </div>
-            
             </div>
         </div>
     </div>
