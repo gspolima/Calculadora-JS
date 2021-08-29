@@ -1,0 +1,101 @@
+body {
+    font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+    background-color: #04030F;
+    margin: 0;
+}
+
+#visor {
+    align-items: center;
+    font-size: 14px;
+    font-weight: 800;
+    text-align: right;
+    height: 100%;
+    width: 100%;
+
+}
+table{
+    background-color: #131313;
+    display: flex;
+    flex-direction: initial;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    border: solid 3px white;
+    border-radius: 100px;
+    padding: 30px;
+    width: 50%;
+    height: 90%;
+    margin: 10px;
+    margin-left: 25%;
+}
+
+
+.calc .buttons {
+    margin-top: 5%;
+}
+
+.calc .buttons .row {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.calc .buttons button {
+    font-size: 30px;
+    width: 50px;
+    height: 50px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border: transparent 2px rgb(189, 189, 189);
+    border-radius: 15px;
+}
+input{
+    font-size: 30px;
+    width: 50px;
+    height: 50px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border: transparent 2px rgb(189, 189, 189);
+    border-radius: 15px;
+}
+
+.calc .buttons .number {
+    background-color: #cfcfcf;
+}
+
+.calc .buttons .operator {
+    color: white;
+    background-color: #00A6FB;
+    font-size: 30px;
+}
+
+.calc .buttons .equals {
+    color: white;
+    /* background-color:  #EE5622; */
+    background-color:  #268f4e;
+}
+
+.calc .buttons .clear {
+    color:  rgb(245, 52, 52);
+    background-color: white;
+}
+
+.calc .buttons .symbol {
+    background-color: white;
+}
+
+.calc .buttons .erase {
+    color: white;
+    /* background-color: rgb(206, 20, 20); */
+    background-color: #EE5622;
+}
+
+header {
+    color: white;
+    background-color: rgb(12, 79, 117);
+    margin-bottom: 0;
+    padding: 15px;
+    text-align: center;
+}
+
