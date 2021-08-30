@@ -20,7 +20,7 @@ function main() {
             const element = event.target;
 
             // tipo de botão. número, operador, símbolo, etc
-            const className = element.attributes[0].value;
+            const className = element.attributes["class"].value;
 
             // valor do botão
             const value = element.innerHTML;
