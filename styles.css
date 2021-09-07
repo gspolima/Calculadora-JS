@@ -28,7 +28,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    width: 95%;
+    width: 228px;
     height: 90px;
     border-radius: 15px;
     padding: 10px 15px 10px 15px;
@@ -57,6 +57,14 @@ body {
     justify-content: center;
 }
 
+.calc .buttons .row .erase {
+    display: flex;
+    flex-flow: row-reverse;
+    justify-content: flex-end;
+    background-color: #EE5622;
+    color: white;
+}
+
 .calc .buttons button {
     font-size: 30px;
     width: 50px;
@@ -64,11 +72,12 @@ body {
     margin-left: 5px;
     margin-right: 5px;
     border: solid 2px rgb(189, 189, 189);
+    background-color: white;
     border-radius: 15px;
 }
 
-.calc .buttons .number {
-    background-color: #cfcfcf;
+.calc .buttons button:active {
+    background-color: rgb(189, 189, 189);
 }
 
 .calc .buttons .operator {
@@ -85,17 +94,6 @@ body {
 
 .calc .buttons .clear {
     color:  rgb(245, 52, 52);
-    background-color: white;
-}
-
-.calc .buttons .symbol {
-    background-color: white;
-}
-
-.calc .buttons .erase {
-    color: white;
-    /* background-color: rgb(206, 20, 20); */
-    background-color: #EE5622;
 }
 
 header {
