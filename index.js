@@ -1,92 +1,112 @@
 main();
 
 function main() {
-    let topScreen = document.getElementsByClassName("section top")[0];
-    let bottomScreen = document.getElementsByClassName("section bottom")[0];
-
+    
     // composição da equação
-    let equation = [];
-    let equationForDisplay = [];
-    let joinedMembers = '';
-    let result = 0;
+    let equation = [0];
+    // valores para exibição
 
+    // parte superior e inferior da tela de saída
+    let top = document.getElementsByClassName('section top')[0];
+    let bottom = document.getElementsByClassName('section bottom')[0];
     // lista dos botões da calculadora
-    const buttons = document.getElementsByTagName("button");
+    const buttons = document.getElementsByTagName('button');
 
     for (let i = 0; i < buttons.length; i++) {
         const button = buttons[i];
+        let event = button.event;
 
-        button.addEventListener('click', function (event) {
-            // função que executa quando um dos botões for clicado
+        button.addEventListener('click', onButtonClick);
+    }
 
-            // identificar botão clicado
-            const element = event.target;
+    // função que executa quando um dos botões for clicado
+    function onButtonClick(event) {
+        // identificar botão clicado
+        const element = event.target;
 
-            // tipo de botão. número, operador, símbolo, etc
-            const className = element.attributes['class'].value;
+        // tipo de botão: número, operador, símbolo, etc
+        const className = element.attributes['class'].value;
 
-            // valor do botão
-            const value = element.innerHTML;
+        addValuesToEquation(element, className, equation);
 
-            // ultimo elemento da equação
-            let lastElement = equation[equation.length - 1];
+        let equationString = formatEquation(equation);
 
+        if (className === 'erase') {
+            if (isEquationResult(equation))
+                displayEquationOnTop('');
+            else
+                eraseLastElement(equation);
+        }
 
-            // adiciona o valor à equação de formas diferentes dependendo do tipo
-            if (className === 'number') {
-                if (typeof lastElement === 'undefined')
-                    equation.push(`${value}`);
-                else if (!isNaN(lastElement)) {
-                    equation.pop();
-                    equation.push(lastElement += value);
-                }
-                else if (isNaN(lastElement))
-                    equation.push(value);
-            }
+        updateBottomHalf(equationString);
 
-            if (className === 'operator') {
+        if (className === 'equals') {
+            let result = eval(equationString);
+            if (!Number.isInteger(result))
+                result = Number(result).toFixed(2);
+
+            displayEquationOnTop(equationString);
+            updateBottomHalf(result);
+            equation = [result];
+            console.info('RESULTADO', result);
+        }
+    
+        if (className === 'clear') {
+            equation.splice(0, equation.length);
+            displayEquationOnTop(equation);
+            updateBottomHalf(0);
+        }
+
+        console.log(`|Equação ${equation}`);
+    }
+
+    // adiciona o valor à equação de formas diferentes, dependendo do tipo
+    function addValuesToEquation(element, className, equation) {
+        const value = element.innerHTML;
+        let lastElement = equation[equation.length - 1];
+
+        if (className === 'number') {
+            if (typeof lastElement === 'undefined')
                 equation.push(`${value}`);
+            else if (!isNaN(lastElement)) {
+                const lastElementIndex = equation.indexOf(lastElement);
+                equation[lastElementIndex] = lastElement += value;
             }
+            else if (isNaN(lastElement))
+                equation.push(value);
+        }
 
-            if (className === 'operator power')
-            {
-                let base = lastElement;
-                equation.push()
-            }
+        if (className === 'operator') {
+            equation.push(`${value}`);
+        }
 
-            if (className === 'erase') {
-                if (equation.length === 1) {
-                    equation = [0];
-                    topScreen.innerHTML = '';
-                }
-                else
-                    equation.pop();
-            }
+        // para debugar
+        console.log(`|Valor: ${value}| Tipo: ${className}`);
+    }
 
-            equationForDisplay = [...equation];
-            joinedMembers = equationForDisplay.join(' ');
-            bottomScreen.innerHTML = joinedMembers;
+    function formatEquation(currentEquation) {
+        let toBeDisplayed = [...currentEquation];
+        if (isEquationResult(toBeDisplayed))
+            return toBeDisplayed[0];
+        if (toBeDisplayed[0] === 0)
+            return '';
 
-            if (className === 'equals') {
-                // exibe resultados na tela e no console
-                let result = eval(joinedMembers);
-                topScreen.innerHTML = joinedMembers;
-                bottomScreen.innerHTML = result;
-                console.info('RESULTADO', result);
+        return toBeDisplayed.join(' ');
+    }
 
-                // Reseta o array da equação e adiciona o resultado
-                equation = [result];
-            }
+    function eraseLastElement(currentEquation) {
+        currentEquation.pop();
+    }
 
-            if (className === 'clear') {
-                equation.splice(0, equation.length);
-                topScreen.innerHTML = '';
-                result = 0;
-                bottomScreen.innerHTML = result;
-            }
+    function displayEquationOnTop(equationString) {
+        top.innerHTML = equationString;
+    }
 
-            // para debugar
-            console.log(`Valor: ${value}| Tipo: ${className}| Equação ${equation}`);
-        });
+    function updateBottomHalf(joinedElements) {
+        bottom.innerHTML = joinedElements;
+    }
+
+    function isEquationResult(currentEquation) {
+        return (currentEquation.length === 1 && currentEquation[0] !== 0);
     }
 }

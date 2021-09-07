@@ -41,7 +41,7 @@ body {
 }
 
 .calc .console .bottom {
-    font-size: 32px;
+    font-size: 28px;
     font-weight: 300;
     height: 60%;
 }
@@ -57,10 +57,13 @@ body {
     justify-content: center;
 }
 
-.calc .buttons .row .erase {
+#eraseRow {
     display: flex;
-    flex-flow: row-reverse;
-    justify-content: flex-end;
+    flex-flow: row-reverse nowrap;
+    margin-top: 15px;
+}
+
+.calc .buttons .erase {
     background-color: #EE5622;
     color: white;
 }
