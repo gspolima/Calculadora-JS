@@ -1,0 +1,3 @@
+export default class InputHandler {
+    // Handle button events...
+}
