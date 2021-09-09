@@ -57,9 +57,10 @@ body {
     justify-content: center;
 }
 
-#eraseRow {
+#deleteRow {
     display: flex;
-    flex-flow: row-reverse nowrap;
+    flex-flow: row nowrap;
+    justify-content: space-between;
     margin-top: 15px;
 }
 

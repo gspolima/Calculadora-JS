@@ -3,8 +3,7 @@ main();
 function main() {
     
     // composição da equação
-    let equation = [0];
-    // valores para exibição
+    const equation = [];
 
     // parte superior e inferior da tela de saída
     let top = document.getElementsByClassName('section top')[0];
