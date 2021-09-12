@@ -1,11 +1,14 @@
 import EquationManager from "./EquationManager.js";
+import Console from "./Console.js";
 
 export default class InputHandler {
     constructor() {
         this.#equationManager = new EquationManager();
+        this.#console = new Console();
     }
 
     #equationManager;
+    #console;
 
     handle(event) {
         if (event instanceof Event) {
@@ -26,6 +29,12 @@ export default class InputHandler {
 
             if (className === 'clear')
                 this.#equationManager.clearEquation();
+
+            this.#console.updateResultTextBox();
+
+            if (className === 'equals')
+                this.#console.showEquation();
+                this.#console.showResult();
         }
     }
 }

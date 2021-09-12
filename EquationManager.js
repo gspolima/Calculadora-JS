@@ -31,7 +31,6 @@ export default class EquationManager {
     getEquation() { return this.#equation; }
 
     solve() {
-        
         while (this.#equationLength >= 3) {
             const operatorIndex = this.#findPrecendentOperator();
             const leftSideIndex = operatorIndex - 1;
