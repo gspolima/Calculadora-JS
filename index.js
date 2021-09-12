@@ -1,9 +1,10 @@
 main();
 
+
 function main() {
     
     // composição da equação
-    const equation = [];
+    let equation = [];
 
     // parte superior e inferior da tela de saída
     let top = document.getElementsByClassName('section top')[0];
