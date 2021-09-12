@@ -1,3 +1,5 @@
+import OutputFormatter from "./OutputFormatter.js";
+
 export default class Console {
     constructor(equationTextBox, resultTextBox) {
         if (equationTextBox instanceof Element )
@@ -8,30 +10,35 @@ export default class Console {
             this.#resultTextBox = resultTextBox;
         else
             throw new Error(`${resultTextBox} is not an Element`);
+
+        this.#formatter = new OutputFormatter();
     }
 
+    #formatter;
     #equationTextBox;
     #resultTextBox;
+    #equationString = () => this.#formatter.getEquationString();
+    #equationResult = () => this.#formatter.formatEquationResult();
 
 
-    showEquation(equationString) {
-        if (typeof equationString === 'string')
-            this.#equationTextBox.innerHTML = equationString;
+    showEquation() {
+        if (typeof this.#equationString === 'string')
+            this.#equationTextBox.innerHTML = this.#equationString;
         else
-            throw new Error(`[${this.updateResultTextBox}] - ${equationString} is not a valid string`);
+            throw new Error(`[${this.updateResultTextBox}] - ${this.#equationString} is not a valid string`);
     }
 
-    showResult(result) {
-        if (typeof result === 'number')
-            this.#resultTextBox.innerHTML = result;
+    showResult() {
+        if (typeof this.#equationResult === 'number')
+            this.#resultTextBox.innerHTML = this.#equationResult;
         else
-            throw new Error(`${result} is not a valid number`);
+            throw new Error(`${this.#equationResult} is not a valid number`);
     }
 
-    updateResultTextBox(equationString) {
-        if (typeof equationString === 'string')
-            this.#resultTextBox = equationString;
+    updateResultTextBox() {
+        if (typeof this.#equationString === 'string')
+            this.#resultTextBox = this.#equationString;
         else
-            throw new Error(`[${this.updateResultTextBox}] - ${equationString} is not a valid string`);
+            throw new Error(`[${this.updateResultTextBox}] - ${this.#equationString} is not a valid string`);
     }
 }

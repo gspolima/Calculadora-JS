@@ -1,11 +1,23 @@
+import EquationManager from "./EquationManager.js";
+
 export default class OutputFormatter {
 
-    getEquationString(equation) { return equation.join(' '); }
+    constructor() {
+        this.#equationManager = new EquationManager();
+    }
 
-    formatEquationResult(result) {
-        if (!Number.isInteger(result))
-            return Number(result).toFixed(2);
+    #equationManager;
+    #equation = () => this.#equationManager.getEquation();
+    #result = () =>  this.#equationManager.solve();
 
-        return result;
+    getEquationString() {
+        return this.#equation.join(' ');
+    }
+
+    formatEquationResult() {
+        if (!Number.isInteger(this.#result))
+            return Number(this.#result).toFixed(2) 
+        else
+            return this.#result;
     }
 }
