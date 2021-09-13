@@ -19,14 +19,20 @@ export default class InputHandler {
         if (className === 'number') 
             this.#equationManager.addNumber(value);
 
-        if (className === 'operator')
-            this.#equationManager.addOperator(value);
+        if (className.startsWith('operator')) {
+            if (className.endsWith('unary'))
+                this.#equationManager.addUnaryOperator(value);
+            else
+                this.#equationManager.addOperator(value);
+        }
 
         if (className === 'erase')
             this.#equationManager.removeElement();
 
-        if (className === 'clear')
+        if (className === 'clear') {
             this.#equationManager.clearEquation();
+            this.#console.showEquation();
+        }
 
         this.#console.updateResultTextBox();
 
