@@ -40,9 +40,10 @@ export default class EquationManager {
             const leftSide = this.#equation[leftSideIndex];
             const rightSide = this.#equation[rightSideIndex];
 
-            if (operator === '+')
+            if (operator === '+') {
                 const sum = this.#calc.sum(leftSide, rightSide);
                 this.#equation = this.#equation.splice(leftSideIndex, 2, sum);
+            }
         }
 
         return this.#equation[0];
