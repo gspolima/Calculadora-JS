@@ -2,21 +2,23 @@ import EquationManager from "./EquationManager.js";
 
 export default class OutputFormatter {
 
-    constructor() {
-        this.#equationManager = new EquationManager();
+    constructor(equationManager) {
+        if (equationManager instanceof EquationManager)
+            this.#equationManager = equationManager;
     }
 
     #equationManager;
-    #equation = () => this.#equationManager.getEquation();
-    #result = () =>  this.#equationManager.solve();
+    #result;
 
     getEquationString() {
-        return this.#equation.join(' ');
+        const equation = this.#equationManager.getEquation();
+        return equation.join(' ');
     }
 
     formatEquationResult() {
+        this.#result = this.#equationManager.solve();
         if (!Number.isInteger(this.#result))
-            return Number(this.#result).toFixed(2) 
+            return Number(this.#result).toFixed(2);
         else
             return this.#result;
     }

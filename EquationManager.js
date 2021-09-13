@@ -2,16 +2,17 @@ import Calculator from './Calculator.js';
 
 export default class EquationManager {
     constructor() {
-        this.#equation = new Array()
+        this.#equation = new Array();
         this.#calc = new Calculator();
     }
 
     #equation;
-    #equationLength = () => this.#equation.length;
+    #equationLength;
     #calc;
 
 
     addNumber(value) {
+        this.#equationLength = this.#equation.length;
         const lastElementIndex = this.#equationLength - 1;
         let lastElement = this.#equation[lastElementIndex];
         const hasComma = this.#equation.lastIndexOf(',');
@@ -31,6 +32,7 @@ export default class EquationManager {
     getEquation() { return this.#equation; }
 
     solve() {
+        this.#equationLength = this.#equation.length;
         while (this.#equationLength >= 3) {
             const operatorIndex = this.#findPrecendentOperator();
             const leftSideIndex = operatorIndex - 1;
@@ -41,9 +43,12 @@ export default class EquationManager {
             const rightSide = this.#equation[rightSideIndex];
 
             if (operator === '+') {
-                const sum = this.#calc.sum(leftSide, rightSide);
-                this.#equation = this.#equation.splice(leftSideIndex, 2, sum);
+
+                const sum = this.#calc.sum(Number(leftSide), Number(rightSide));
+                this.#equation.splice(leftSideIndex, 3, sum);
             }
+
+            this.#equationLength = this.#equation.length;
         }
 
         return this.#equation[0];
@@ -51,9 +56,12 @@ export default class EquationManager {
 
     #findPrecendentOperator() {
         const operators = ['^', '*', '/', '+', '-'];
-        for (let op of operators)
-            if (this.#equation.includes(op))
-                return this.#equation.findIndex(op);
+        for (let op of operators) {
+            if (this.#equation.includes(op)) {
+                const opIndex = this.#equation.indexOf(op);
+                return opIndex;
+            }
+        }
     }
 
     #isInteger(value) {
