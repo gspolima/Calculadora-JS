@@ -1,5 +1,6 @@
 # Calculadora-JS
 Projeto de calculadora usando JavaScript.
+
 ⚠ Requer um browser atualizado capaz de executar ES6 JavaScript Modules.
 
 ## Hospedagem
