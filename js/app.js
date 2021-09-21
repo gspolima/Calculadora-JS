@@ -1,4 +1,4 @@
-import InputHandler from './InputHandler.js';
+import InputHandler from './modules/InputHandler.js';
 
 const inputHandler = new InputHandler();
 
